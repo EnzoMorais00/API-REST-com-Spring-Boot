@@ -1,29 +1,31 @@
 # Validação realizada
 
-O JAR da API foi empacotado e executado com Java 17. As 11 consultas HTTP abaixo passaram, verificando tanto o status quanto o conteúdo das respostas. O processo da aplicação foi encerrado ao terminar a verificação.
+Em 13/09/2026, o GitHub Actions executou a compilação, os testes e o empacotamento com Java 17 e Maven Wrapper. O resultado foi **BUILD SUCCESS**.
 
-| Consulta | Resultado |
-|---|---|
-| GET /alunos | 200; cinco alunos |
-| GET /alunos/1 | 200; dados de Ana Silva |
-| GET /alunos/1/boletim | 200; aprovada |
-| GET /alunos/2/boletim | 200; reprovado por média |
-| GET /alunos/3/boletim | 200; reprovada por frequência |
-| GET /alunos/4/boletim | 200; aprovado nos limites de 6 e 75% |
-| GET /alunos/5/boletim | 200; reprovada pelos dois critérios |
-| GET /alunos/999 | 404 |
-| GET /alunos/999/boletim | 404 |
-| GET /alunos/abc | 400 |
-| GET /alunos/abc/boletim | 400 |
+[Ver a execução concluída](https://github.com/EnzoMorais00/API-REST-com-Spring-Boot/actions/runs/34777651776)
 
-## Limitação da validação
+Código verificado no commit: 4f3cc923401fabe063c6bfaa029be7d4c30c0e1a.
 
-Foram incluídos 30 casos de teste automatizados em `src/test/java`. **A suíte JUnit não foi executada com sucesso neste ambiente.** O comando `clean verify` encontrou `AccessDeniedException` durante a resolução de caminhos do Windows. O compilador também reportou `Cannot close compiler resources` ao lidar com esses caminhos. As permissões solicitadas não resolveram a restrição do executor.
+| Suíte | Testes | Falhas | Erros | Ignorados |
+|---|---:|---:|---:|---:|
+| AlunoControllerTest | 20 | 0 | 0 | 0 |
+| AvaliacaoServiceTest | 10 | 0 | 0 | 0 |
+| Total | 30 | 0 | 0 | 0 |
 
-A verificação HTTP do JAR confirma o comportamento das consultas listadas; ela não substitui a execução da suíte de testes. Para concluir essa etapa, abra um terminal local com o JDK configurado, na pasta do `pom.xml`, e execute:
+Também foram verificadas 11 consultas HTTP contra o JAR executável local: listagem dos cinco alunos, busca por ID, os cinco boletins, aluno inexistente nas duas rotas (404) e ID textual nas duas rotas (400). Todas passaram, incluindo a conferência do JSON.
 
-```powershell
-.\mvnw.cmd clean verify
-```
+## Repetir a validação
 
-No Linux ou macOS, use `bash ./mvnw clean verify`. Confira `BUILD SUCCESS` e o resumo dos testes antes da entrega.
+No Windows, execute na pasta do pom.xml:
+
+    .\mvnw.cmd clean verify
+
+No Linux ou macOS:
+
+    bash ./mvnw clean verify
+
+A aba Actions executa esse procedimento a cada envio para main. Confira o resultado da execução correspondente à versão que será entregue.
+
+## Histórico do ambiente local
+
+A tentativa inicial de executar a suíte no ambiente restrito do Windows encontrou falhas de permissão na resolução de caminhos. A validação completa foi posteriormente concluída no GitHub Actions, conforme o resultado acima.
