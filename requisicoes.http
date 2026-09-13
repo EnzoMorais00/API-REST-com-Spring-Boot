@@ -1,0 +1,26 @@
+### Listar os cinco alunos fictícios
+GET http://localhost:8080/alunos
+
+### Buscar uma aluna
+GET http://localhost:8080/alunos/1
+
+### Aprovada: média 7,5 e frequência 90%
+GET http://localhost:8080/alunos/1/boletim
+
+### Reprovado por média: 4,5
+GET http://localhost:8080/alunos/2/boletim
+
+### Reprovada por frequência: 70%, mesmo com média 8,5
+GET http://localhost:8080/alunos/3/boletim
+
+### Aprovado nos limites: média 6 e frequência 75%
+GET http://localhost:8080/alunos/4/boletim
+
+### Reprovada por média e frequência
+GET http://localhost:8080/alunos/5/boletim
+
+### Aluno inexistente: HTTP 404
+GET http://localhost:8080/alunos/999
+
+### ID inválido: HTTP 400
+GET http://localhost:8080/alunos/abc
