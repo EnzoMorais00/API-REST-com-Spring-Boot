@@ -229,7 +229,7 @@ O comando `test` roda os testes. `clean verify` limpa os arquivos gerados, execu
 
 A suíte contém 30 casos de teste ao todo. O teste com MockMvc exercita as camadas integradas sem abrir uma porta de rede.
 
-O [registro de validação](docs/VALIDACAO.md) descreve as 11 consultas HTTP verificadas e a limitação que impediu executar a suíte automatizada neste ambiente.
+Os **30 casos de teste passaram**, sem falhas, erros ou testes ignorados, no [GitHub Actions](https://github.com/EnzoMorais00/API-REST-com-Spring-Boot/actions/runs/34777651776). O [registro de validação](docs/VALIDACAO.md) também descreve as 11 consultas HTTP verificadas no JAR local.
 
 ## Repositório no GitHub
 
@@ -244,7 +244,7 @@ cd API-REST-com-Spring-Boot
 
 Depois, siga as instruções de execução deste README. O Maven Wrapper, incluindo a pasta `.mvn`, faz parte do repositório. Arquivos gerados em `target/` ficam fora do controle de versão.
 
-A aba [Actions](https://github.com/EnzoMorais00/API-REST-com-Spring-Boot/actions) executa a compilação e os testes com Java 17 a cada envio para `main`. Consulte o resultado da execução; a presença do workflow não significa que os testes já passaram.
+A aba [Actions](https://github.com/EnzoMorais00/API-REST-com-Spring-Boot/actions) executa a compilação e os testes com Java 17 a cada envio para `main`. A primeira execução concluiu a compilação, os 30 testes e o empacotamento com sucesso. Consulte o resultado de cada execução após novas alterações.
 
 ## Preparar a apresentação e a entrega
 
