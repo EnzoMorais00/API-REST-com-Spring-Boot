@@ -9,7 +9,7 @@ O projeto usa cinco alunos fictícios, armazenados em uma lista em memória. Nã
 ### Requisitos
 
 - JDK 17 ou JDK 21, com `JAVA_HOME` configurado para a pasta do JDK e `java` disponível no terminal.
-- Internet na primeira execução para baixar o Maven e as dependências.
+- Na primeira execução para baixar o Maven e as dependências.
 - Não é necessário instalar Maven: o Maven Wrapper está incluído.
 
 Confira o Java:
